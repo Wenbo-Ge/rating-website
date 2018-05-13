@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <title>Movie Main Page Template</title>
+
+    <style>
+        body{
+            background-color: #eee;
+        }
+
+        .theme-pink-bg{
+            background-color: #e91e63;
+        }
+
+        .cate-menu .active{
+            color: #e91e63;
+            border-bottom: 2px solid #e91e63;
+        }
+    </style>
+</head>
+<body>
+
+<!--Part 1 Nav Bar-->
+<nav class="navbar navbar-expand-lg theme-pink-bg">
+    <a class="navbar-brand text-white" href="#">ShineMovie</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mr-5">
+            <li class="nav-item active">
+                <a class="nav-link text-white" href="#">Movie <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#">Ranking</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#">Comment</a>
+            </li>
+
+            <li class="nav-item ml-5">
+                <a class="nav-link text-white" href="#"><i class="fas fa-user"></i></a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<!--Part 2 Search Div-->
+
+<div class="container d-flex justify-content-center" style="height: 10rem;">
+    <form class="form-inline my-2 my-lg-0" >
+        <input class="form-control rounded-0 border border-white" type="search" placeholder="Search..." aria-label="Search">
+        <button class="btn my-2 my-sm-0 text-white rounded-0 theme-pink-bg" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+</div>
+
+
+<!--Part 3 Banner-->
+
+<div class="container-fluid p-0 position-relative">
+    <img src="./img/example-banner.jpg" class="w-100" alt="">
+
+    <div class="position-absolute" style="left: 2rem; bottom: 2rem;">
+        <h2 class="text-white">Movie Name</h2>
+        <p class="text-light mb-4">
+            <span class="mr-4">Ca1 Ca2 Ca3</span> | <span>Duration 2h</span>
+        </p>
+        <button class="btn theme-pink-bg text-white">VIEW INFO</button>
+    </div>
+
+    <div class="position-absolute border border-secondary p-2 rounded" style="right: 2rem; bottom: 2rem;">
+        <p>
+            <span class="text-white">Rating</span>
+            <span class="text-secondary" style="font-size: 0.7rem">based on 2000 views</span>
+        </p>
+        <p class="text-white">Score 3.4</p>
+    </div>
+</div>
+
+<!--Part 4 Movie List-->
+
+<div class="container-fluid">
+    <!--Part 4.1: Category Menu-->
+    <div class="row my-3 mx-4 cate-menu">
+        <div class="col-12" >
+            <div class="container-fluid">
+                <div class="row text-secondary" style="border-bottom: 1px solid #ccc; line-height: 2.4rem">
+                    <div class="col-1 active">
+                        All
+                    </div>
+                    <div class="col-1">
+                        Love
+                    </div>
+                    <div class="col-1">
+                        Action
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Part 4.2: List-->
+    <div class="row">
+
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
