@@ -4,6 +4,9 @@ bootstrp 4 和style有冲突，style不好用？什么时候可以直接加在class里，什么时候可以
 
 在p tag 里用span的优势？为什么不能直接写内容
 
+数据库 genre 1，2 十以内是什么意思
+
 
 wordpress 如何个性化定制menu：例如加入icon
+wordpress 数据库是怎么导入的
 
