@@ -34,7 +34,40 @@ class DBConnection {
 
         return $categories;
     }
+
+    public function getMovieById($id){
+        $stmt=$this->getConnInstant()->prepare('SELECT * FROM movie WHERE id=:id');
+        $result=$stmt->execute(
+            array(
+                ':id'=>$id
+            )
+        );
+        $result=$stmt->fetch();
+        return $result;
+    }
+
+    public function getCommentById($id){
+        $stmt=$this->getConnInstant()->prepare('SELECT * FROM comments WHERE m_id=:id');
+        $result=$stmt->execute(
+            array(
+                ':id'=>$id
+            )
+        );
+        $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getCategoryById($cid){
+        $stmt=$this->getConnInstant()->prepare('SELECT * FROM movie WHERE genre LIKE :id ORDER BY date DESC ');
+        $result=$stmt->execute(
+            array(
+                ':id'=>'%'.$cid.'%'
+            )
+        );
+        $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }
 
 //$db=new DBConnection();
-//var_dump($db->getAllMovies());
+//var_dump($db->getCategoryById(3));

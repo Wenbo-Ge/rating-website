@@ -13,6 +13,46 @@ $loader = new Twig_Loader_Filesystem('./templates');
 $twig = new Twig_Environment($loader);
 
 $db_conn=new DBConnection();
+
+/*
+ * route form here
+ *
+ */
+
+if (array_key_exists('url',$_GET)){
+    $url=$_GET['url'];
+    $p_array=explode('/',$url);
+    if (!file_exists($p_array[0].'.php')){
+        echo 'Sorry, wrong route';
+        exit;
+    }
+    require_once ($p_array[0].'.php');
+
+    $handle_obj=new $p_array[0]($db_conn,$twig);
+    if (array_key_exists(1,$p_array)){
+        $method=$p_array[1].'Method';
+    }else{
+        $method='indexMethod';
+    }
+
+    if (array_key_exists(2,$p_array)){
+        $handle_obj->$method($p_array[2 ]);
+    }else{
+        $handle_obj->$method();
+    }
+    exit();
+}
+
+
+
+?>
+
+
+<?php
+/*
+ * Main page generation
+ */
+
 $movies=$db_conn->getAllMovies();
 $categories=$db_conn->getAllCategories();
 

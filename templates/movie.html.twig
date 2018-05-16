@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <title>Single Page</title>
+
+    <style>
+        body{
+            background-color: #eee;
+        }
+
+        .theme-pink-bg{
+            background-color: #e91e63;
+        }
+
+        .theme-pink-color{
+            color: #e91e63;
+        }
+
+        .cate-menu .active{
+            color: #e91e63;
+            border-bottom: 2px solid #e91e63;
+        }
+    </style>
+
+
+
+</head>
+<body>
+
+<!--Part 1 Nav Bar-->
+
+<nav class="navbar navbar-expand-lg theme-pink-bg">
+    <a class="navbar-brand text-white" href="/rating-website">ShineMovie</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mr-5">
+            <li class="nav-item mr-5">
+                <form class="form-inline my-2 my-lg-0" >
+                    <input class="form-control rounded-0 border border-white" type="search" placeholder="Search..." aria-label="Search">
+                    <button class="btn my-2 my-sm-0 text-white rounded-0 theme-pink-bg" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link text-white" href="#">Movie <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#">Ranking</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#">Comment</a>
+            </li>
+
+            <li class="nav-item ml-5">
+                <a class="nav-link text-white" href="#"><i class="fas fa-user"></i></a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<!--Part 2 Banner-->
+<div class="container-fluid p-0 bg-white" style=" box-shadow: 3px 3px 5px 6px #AAAAAA">
+    <div class="row">
+        <div class="col-8" style="font-size: 0px;">
+            <iframe width="100%" height="450" src="{{ movie.youtube_url }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+
+        <div class="col-4">
+            <div class="pt-5 px-4">
+                <h2>{{ movie.name }}</h2>
+                <p>{{ (movie.total_score/movie.score_num) | number_format(1, '.', ',') }}
+                </p>
+                <p>Directors: Anthony Russo, Joe Russo</p>
+                <p>Starring:
+                    Robert Downey Jr.
+                    Chris Hemsworth
+                    Mark Ruffalo
+                    Chris Evans</p>
+                <p>Date: April 27, 2018</p>
+                <p>Genre:
+                    {% set genres = movie.genre | split(',') %}
+                    {% for ge in genres %}
+                        <a class="mr-2" href="/rating-website/genre/get/{{ ge }}">{{ categories[ge] }}</a>
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Part 3 Description-->
+<div class="container-fluid my-5">
+    <!--Part 3.1 Category Menu-->
+    <div class="row my-3 mx-4 cate-menu">
+        <div class="col-12" >
+            <div class="container-fluid">
+                <div class="row text-secondary" style="border-bottom: 1px solid #ccc; line-height: 2.4rem">
+                    <div class="col-1 active">
+                        All
+                    </div>
+                    <div class="col-1">
+                        Love
+                    </div>
+                    <div class="col-1">
+                        Action
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mx-4 px-5 my-5 text-secondary text-justify">
+        <h6 class="mb-3">Description</h6>
+        <span class="ml-4 ">{{ movie.description }}</span>
+    </div>
+</div>
+
+<!--Part 4 Comments-->
+
+<div class="container-fluid">
+    <!--Part 4.1 Title-->
+    <div class="row my-3 mx-4 cate-menu">
+        <div class="col-12" >
+            <div class="container-fluid">
+                <div class="row text-secondary" style="border-bottom: 1px solid #ccc; line-height: 2.4rem">
+                    <div class="col-2 active">
+                        Comments
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Part 4.2 Input-->
+    <div class="row">
+        <form class="form-inline my-5 mx-auto" >
+            <textarea class="form-control rounded-0 border border-primary" rows="5" style="width: 50vw;" placeholder="Add some comments..."></textarea>
+            <button class="btn btn-primary ml-3 px-4 rounded-0" type="submit" style="align-self: flex-end;">Submit</button>
+        </form>
+    </div>
+    <!--Part 4.3 Comments List-->
+    <div class="row">
+        <div class="container text-primary text-justify" >
+            {% if comments == false %}
+                <div class="row my-4">
+                    <div class="row my-4">
+                        <div class="col-1">
+
+                        </div>
+                        <div class="col-11">
+
+                            <small>No Comments for this movie yet.</small>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                {% for comment in comments %}
+                    <div class="row my-4">
+                        <div class="col-1">
+                            <i class="fas fa-user fa-2x"></i>
+                        </div>
+                        <div class="col-11">
+                            <h5>Owen Gleiberman</h5>
+                            <small>{{ comment.content }}</small>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

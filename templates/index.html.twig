@@ -35,7 +35,7 @@
 
 <!--Part 1 Nav Bar-->
 <nav class="navbar navbar-expand-lg theme-pink-bg">
-    <a class="navbar-brand text-white" href="#">{{ name }}</a>
+    <a class="navbar-brand text-white" href="/rating-website">{{ name }}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -75,7 +75,7 @@
 <!--Part 3 Banner-->
 
 <div class="container-fluid p-0 position-relative">
-    <img src="./img/example-banner.jpg" class="w-100" alt="">
+    <img src="/rating-website/img/example-banner.jpg" class="w-100" alt="">
 
     <div class="position-absolute" style="left: 5rem; bottom: 3rem;">
         <h2 class="text-white">Movie Name</h2>
@@ -105,11 +105,9 @@
                     <div class="col-1 active">
                         All
                     </div>
+                    {% for id,name in categories %}
                     <div class="col-1">
-                        Love
-                    </div>
-                    <div class="col-1">
-                        Action
+                        {{ name }}
                     </div>
                 </div>
             </div>
@@ -120,7 +118,7 @@
         {% for movie in movies %}
             <div class="col-4 col-md-3 my-2">
                 <div class="card">
-                    <img class="card-img-top w-100" src="{{ movie.widget_url }}" alt="Card image cap">
+                    <a href="/rating-website/movie/get/{{ movie.id }}"><img class="card-img-top w-100" src="{{ movie.widget_url }}" alt="Card image cap"></a>
                     <div class="card-body">
                         <div class="float-right border border-danger rounded p-1 theme-pink-color bg-light">
                            {{ (movie.total_score/movie.score_num) | number_format(1, '.', ',') }}
@@ -128,15 +126,12 @@
                         <h5 class="card-title ">{{ movie.name }}</h5>
                         <small class="card-text text-secondary" >
                             {% set genres = movie.genre | split(',') %}
-                            {% set temp=[] %}
                             {% for ge in genres %}
-                                {% set temp = temp|merge([categories[ge]]) %}
+                                <a class="mr-2" href="/rating-website/genre/get/{{ ge }}">{{ categories[ge] }}</a>
                             {% endfor %}
-                            {{ temp | join(' | ') }}
 
                             {#双层括号相当于echo，单括号加百分号相当一些twig支持的语句#}
                         </small>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
