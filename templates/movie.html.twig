@@ -145,10 +145,10 @@
     </div>
     <!--Part 4.2 Input-->
     <div class="row">
-        <form class="form-inline my-5 mx-auto" >
-            <textarea class="form-control rounded-0 border border-primary" rows="5" style="width: 50vw;" placeholder="Add some comments..."></textarea>
-            <button class="btn btn-primary ml-3 px-4 rounded-0" type="submit" style="align-self: flex-end;">Submit</button>
-        </form>
+        <div class="form-inline my-5 mx-auto" >
+            <textarea id="comment_input" class="form-control rounded-0 border border-primary" rows="5" style="width: 50vw;" placeholder="Add some comments..."></textarea>
+            <button id="comment_submit" class="btn btn-primary ml-3 px-4 rounded-0" style="align-self: flex-end;" data-id="{{ movie.id }}">Submit</button>
+        </div>
     </div>
     <!--Part 4.3 Comments List-->
     <div class="row">
@@ -193,5 +193,23 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+
+    $('#comment_submit').on('click', function(){
+        var m_id=$(this).data('id');
+        var content=$('#comment_input').val();
+        $.post(
+            '/rating-website/comment/submit',
+            {
+                'mid':m_id,
+                'content':content
+            },
+            function (data){
+                console.log('123');
+            },
+            'json'
+        )
+    });
+</script>
 </body>
 </html>

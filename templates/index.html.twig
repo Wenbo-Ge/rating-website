@@ -102,13 +102,12 @@
         <div class="col-12" >
             <div class="container-fluid">
                 <div class="row text-secondary" style="border-bottom: 1px solid #ccc; line-height: 2.4rem">
-                    <div class="col-1 active">
-                        All
-                    </div>
+
                     {% for id,name in categories %}
-                    <div class="col-1">
-                        {{ name }}
+                    <div class="col-1 p-0 {% if c_id==id %} active {% endif %}">
+                        <a href="/rating-website/genre/get/{{ id }}">{{ name }}</a>
                     </div>
+                   {% endfor %}
                 </div>
             </div>
         </div>

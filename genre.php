@@ -18,7 +18,9 @@ class genre{
         $movies=$this->conn->getCategoryById($cid);
         $categories=$this->conn->getAllCategories();
 
-        $new_category=array();
+        $new_category=array(
+            0=>'All'
+        );
         foreach ($categories as $category){
             $new_category += array(
                 $category['id']=>$category['name']
@@ -28,7 +30,8 @@ class genre{
             echo $this->twig->render('index.html.twig',
                 array('name' => 'ShineMovie',
                     'movies'=>$movies,
-                    'categories'=>$new_category
+                    'categories'=>$new_category,
+                    'c_id'=>$cid
                 ));
         } catch (Exception $e){
             echo $e->getMessage();

@@ -67,7 +67,19 @@ class DBConnection {
         $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function insertComment($mid,$content){
+        $stmt=$this->getConnInstant()->prepare('INSERT INTO comments (m_id,data,content) VALUES (:mid,:date,:content)');
+        $result=$stmt->execute(
+            array(
+                ':mid'=>$mid,
+                ':date'=>date('Y-m-d h:i:s'),
+                ':content'=>$content
+            )
+        );
+        return $result;
+    }
 }
 
 //$db=new DBConnection();
-//var_dump($db->getCategoryById(3));
+//var_dump($db->insertComment(1,'321'));
