@@ -69,7 +69,7 @@ class DBConnection {
     }
 
     public function insertComment($mid,$content){
-        $stmt=$this->getConnInstant()->prepare('INSERT INTO comments (m_id,data,content) VALUES (:mid,:date,:content)');
+        $stmt=$this->getConnInstant()->prepare('INSERT INTO comments (m_id,date,content) VALUES (:mid,:date,:content)');
         $result=$stmt->execute(
             array(
                 ':mid'=>$mid,
@@ -82,4 +82,4 @@ class DBConnection {
 }
 
 //$db=new DBConnection();
-//var_dump($db->insertComment(1,'321'));
+//var_dump($db->insertComment(2,'321'));

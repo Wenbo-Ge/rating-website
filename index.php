@@ -66,7 +66,7 @@ foreach ($categories as $category){
 }
 try {
     echo $twig->render('index.html.twig',
-        array('name' => 'ShineMovie',
+        array('name' => 'Game Rating',
             'movies'=>$movies,
             'categories'=>$new_category,
             'c_id'=>0

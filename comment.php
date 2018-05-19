@@ -10,9 +10,9 @@ class comment{
     private $conn;
     private $twig;
 
-    public function __construct($db_conn, $twig)
+    public function __construct($conn, $twig)
     {
-        $this->conn = $db_conn;
+        $this->conn = $conn;
         $this->twig = $twig;
     }
 
