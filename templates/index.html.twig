@@ -90,7 +90,7 @@
             <span class="text-white">Rating</span>
             <small class="text-secondary" >based on 2000 views</small>
         </p>
-        <p class="text-white">Score 4.5/5</p>
+        <p class="text-white">Score 4.8/5</p>
     </div>
 </div>
 
@@ -117,7 +117,7 @@
         {% for movie in movies %}
             <div class="col-4 col-md-3 my-2">
                 <div class="card">
-                    <a href="/rating-website/movie/get/{{ movie.id }}"><img class="card-img-top w-100" src="{{ movie.widget_url }}" alt="Card image cap"></a>
+                    <a href="/rating-website/movie/get/{{ movie.id }}"><img class="card-img-top w-100" style="max-height: 300px;" src="{{ movie.widget_url }}" alt="Card image cap"></a>
                     <div class="card-body">
                         <div class="float-right border border-danger rounded p-1 theme-pink-color bg-light">
                            {{ (movie.total_score/movie.score_num) | number_format(1, '.', ',') }}
