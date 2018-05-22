@@ -14,6 +14,9 @@ cache 文件是必须有的吗？
 wordpress 如何个性化定制menu：例如加入icon 放到function里
 wordpress 数据库是怎么导入的
 
+
+
+
 如何评论显示评论者名字
 
 两个htaccess文件的区别
@@ -21,8 +24,9 @@ wordpress 数据库是怎么导入的
 在url里/movie 为什么都是以class的名字作为url？
 movie.php 文件 和movie.html.twig文件的功能？
 twig undefine 的解决方法为什么要用构造函数？
-
+./和/的区别？
 getAllMovies()和getMovieById()的区别？prepare 和 query？
+两个twig for 循环的区别？
 
 
 
