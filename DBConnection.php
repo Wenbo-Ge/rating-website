@@ -57,13 +57,14 @@ class DBConnection {
         return $result;
     }
 
-    public function insertComment($mid,$content){
-        $stmt=$this->getConnInstant()->prepare('INSERT INTO comments (m_id,date,content) VALUES (:mid,:date,:content) ORDER BY DATE DESC');
+    public function insertComment($mid,$content,$commenter = "Anonymous"){
+        $stmt=$this->getConnInstant()->prepare('INSERT INTO comments (m_id,date,content,commenter) VALUES (:mid,:date,:content,:commenter)');
         $result=$stmt->execute(
             array(
                 ':mid'=>$mid,
                 ':date'=>date('Y-m-d h:i:s'),
-                ':content'=>$content
+                ':content'=>$content,
+                ':commenter' => $commenter
             )
         );
         return $result;
@@ -82,6 +83,6 @@ class DBConnection {
 
 
 }
-
+//
 //$db=new DBConnection();
-//var_dump($db->insertComment(2,'321'));
+//var_dump($db->insertComment(16,'321'));

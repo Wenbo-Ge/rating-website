@@ -22,6 +22,7 @@ wordpress 数据库是怎么导入的
 两个htaccess文件的区别
 设置的路由不太明白
 在url里/movie 为什么都是以class的名字作为url？
+
 movie.php 文件 和movie.html.twig文件的功能？
 twig undefine 的解决方法为什么要用构造函数？
 ./和/的区别？
