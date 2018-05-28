@@ -1,0 +1,19 @@
+
+body{
+    background-color: #eee;
+}
+
+.theme-pink-bg{
+    background-color: dodgerblue;
+}
+
+.theme-pink-color{
+    color: #e91e63;
+}
+
+.cate-menu .active{
+    color: #e91e63;
+    border-bottom: 2px solid #e91e63;
+}
+
+
