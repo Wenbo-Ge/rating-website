@@ -26,6 +26,8 @@ class movie
 
     public function getMethod($id)
     {
+
+
         $movie=$this->conn->getMovieById($id);
         $categories=$this->conn->getAllCategories();
 
