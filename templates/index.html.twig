@@ -54,7 +54,15 @@
 
 <div class="container d-flex justify-content-center" style="height: 10rem;">
     <form class="form-inline my-2 my-lg-0" >
-        <input class="form-control rounded-0 border border-white" type="search" placeholder="Search..." aria-label="Search">
+        {#<input class="form-control rounded-0 border border-white" type="search" placeholder="Search..." aria-label="Search">#}
+
+        <select name="game_name" id="game_name" class="form-control rounded-0 border border-white">
+            <option value="">Choose a game for details</option>
+            <option value="1">Far Cry 5</option>
+            <option value="2">GTA 5</option>
+            <option value="3">Witcher 3</option>
+            <option value="4">Starcraft 2</option>
+        </select>
         <button class="btn my-2 my-sm-0 text-white rounded-0 theme-pink-bg" type="submit"><i class="fas fa-search"></i></button>
     </form>
 </div>
@@ -132,6 +140,10 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+
+</script>
 </body>
 </html>
 
