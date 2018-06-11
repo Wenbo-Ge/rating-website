@@ -27,19 +27,6 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mr-5">
-            <li>
-
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link text-white" href="#">Games <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Ranking</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Comment</a>
-            </li>
 
             <li class="nav-item ml-5">
                 <a class="nav-link text-white" href="#"><i class="fas fa-user"></i></a>
@@ -53,19 +40,19 @@
 <!--Part 2 Search Div-->
 
 <div class="container d-flex justify-content-center" style="height: 10rem;">
-    {#<form class="form-inline my-2 my-lg-0" >#}
+
         {#<input class="form-control rounded-0 border border-white" type="search" placeholder="Search..." aria-label="Search">#}
     <div class="form-inline my-2 my-lg-0">
         <select name="game_name" id="game_name" class="form-control rounded-0 border border-white">
             <option value="">Choose a game for details</option>
-            {% for movie in movies %}
-            <option value="{{ movie.id }}">{{ movie.name }}</option>
+            {% for game in movies %}
+            <option value="{{ game.id }}">{{ game.name }}</option>
             {% endfor %}
         </select>
         <button class="btn my-2 my-sm-0 text-white rounded-0 theme-pink-bg" onclick="search_game()"><i class="fas fa-search"></i></button>
 
     </div>
-    {#</form>#}
+
 </div>
 
 

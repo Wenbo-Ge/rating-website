@@ -16,6 +16,7 @@ class genre{
 
     public function getMethod($cid){
         $movies=$this->conn->getCategoryById($cid);
+        $games=$this->conn->getAllMovies();
         $categories=$this->conn->getAllCategories();
 
         $new_category=array(
@@ -30,6 +31,7 @@ class genre{
             echo $this->twig->render('index.html.twig',
                 array('name' => 'Game Rating',
                     'movies'=>$movies,
+                    'games'=>$games,
                     'categories'=>$new_category,
                     'c_id'=>$cid
                 ));
@@ -38,3 +40,4 @@ class genre{
         }
     }
 }
+

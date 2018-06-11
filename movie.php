@@ -27,7 +27,7 @@ class movie
     public function getMethod($id)
     {
 
-
+        $games=$this->conn->getAllMovies();
         $movie=$this->conn->getMovieById($id);
         $categories=$this->conn->getAllCategories();
 
@@ -42,6 +42,7 @@ class movie
         try {
             echo $this->twig->render('movie.html.twig',
                 array('movie' => $movie,
+                    'games'=>$games,
                     'categories'=>$new_category,
                     'comments'=>$comments
                 ));
