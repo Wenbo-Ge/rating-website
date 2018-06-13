@@ -12,6 +12,11 @@
 
     <link rel="stylesheet" type='text/css' href="/rating-website/style.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+
+
 
     <title>Game Detail</title>
 
@@ -21,7 +26,7 @@
 
 
 </head>
-<body>
+<body >
 
 <!--Part 1 Nav Bar-->
 
@@ -102,7 +107,7 @@
 
 <!--Part 4 Comments-->
 
-<div class="container-fluid">
+<div class="container-fluid" ng-app="ngAnimate" >
     <!--Part 4.1 Title-->
     <div class="row my-3 mx-4 cate-menu">
         <div class="col-12" >
@@ -111,59 +116,69 @@
                     <div class="col-2 active">
                         Comments
                     </div>
+                    <div class="col-2 text-primary" >
+                        Hide Comments <input type="checkbox" ng-model="myCheck">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--Part 4.2 Input-->
-    <div class="row">
-        <div class="form-inline my-5 mx-auto" >
-            <textarea id="comment_input" class="form-control rounded-0 border border-primary" rows="5" style="width: 50vw;" placeholder="Add some comments..."></textarea>
-            <button id="comment_submit" class="btn btn-primary ml-3 px-4 rounded-0" style="align-self: flex-end;" data-id="{{ movie.id }}">Submit</button>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-4">
+    <!--Part ng-hide-->
 
-        </div>
-        <div id="result-info">
+    <div ng-hide="myCheck">
+        <!--Part 4.2 Input-->
 
+        <div class="row" >
+            <div class="form-inline my-5 mx-auto"  >
+                <textarea id="comment_input" class="form-control rounded-0 border border-primary" rows="5" style="width: 50vw;" placeholder="Add some comments..."></textarea>
+                <button id="comment_submit" class="btn btn-primary ml-3 px-4 rounded-0" style="align-self: flex-end;" data-id="{{ movie.id }}">Submit</button>
+            </div>
         </div>
 
-    </div>
+        <div class="row">
+            <div class="col-4">
 
-    <!--Part 4.3 Comments List-->
-    <div class="row">
-        <div class="container text-primary text-justify" id="all-comments">
-            {% if comments == false %}
-                <div class="row my-4">
+            </div>
+            <div id="result-info">
+
+            </div>
+
+        </div>
+
+        <!--Part 4.3 Comments List-->
+        <div class="row">
+            <div class="container text-primary text-justify" id="all-comments">
+                {% if comments == false %}
                     <div class="row my-4">
-                        <div class="col-1">
+                        <div class="row my-4">
+                            <div class="col-1">
 
-                        </div>
-                        <div class="col-11">
+                            </div>
+                            <div class="col-11">
 
-                            <small>No Comments for this movie yet.</small>
+                                <small>No Comments for this movie yet.</small>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% else %}
-                {% for comment in comments %}
-                    <div class="row my-4">
-                        <div class="col-1">
-                            <i class="fas fa-user fa-2x"></i>
+                {% else %}
+                    {% for comment in comments %}
+                        <div class="row my-4">
+                            <div class="col-1">
+                                <i class="fas fa-user fa-2x"></i>
+                            </div>
+                            <div class="col-11">
+                                <h5>{{ comment.commenter }}</h5>
+                                <small>{{ comment.content }}</small>
+                            </div>
                         </div>
-                        <div class="col-11">
-                            <h5>{{ comment.commenter }}</h5>
-                            <small>{{ comment.content }}</small>
-                        </div>
-                    </div>
-                {% endfor %}
-            {% endif %}
+                    {% endfor %}
+                {% endif %}
 
+            </div>
         </div>
     </div>
+
 </div>
 
 
