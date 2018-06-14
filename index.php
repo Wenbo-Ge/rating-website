@@ -50,7 +50,7 @@ if (array_key_exists('url',$_GET)){
 
 <?php
 /*
- * Main page generation
+ * Main page generation(repetition from genre.php)
  */
 
 $movies=$db_conn->getAllMovies();
